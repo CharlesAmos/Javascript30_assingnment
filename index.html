@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>flag</title>
+	<meta charset="utf-8">
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+</head>
+<body>
+
+	<header class="show"><h1 style="text-align: center">know the Country By Flag</h1></header>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title" id="theheader">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Population: <span id="thepopulation">Some text in the modal.</span></p>
+        <p>Size: <span id="thesize">Some text in the modal.</span></p>
+        <p>Continent: <span id="thecontinent">Some text in the modal.</span></p>
+        <p>President: <span id="thepresident">Some text in the modal.</span></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+	<div class="container-fluid">
+		<div class="row">
+			<!-- first flag begains -->
+			<div  class="col-sm-4" id="f1" style="text-align: center">
+				<h2 id="d1"></h2>
+				<img src="assets/images/cape-verde-flag.jpg" class="btn btn-info btn-lg center" data-toggle="modal" data-target="#myModal" id="1" onmouseleave="hideName(this.id)" onmouseover="showName(this.id);" onclick="finalFunction(this.id)" width="300px" height="300px">
+				<!--first flag ends-->
+					
+				<!-- second flag begains-->
+			</div>
+			<div class="col-sm-4" style="text-align: center">
+				<h2 id="d2"></h2>
+				<img src="assets/images/costa-rica-flag.jpg" class="btn btn-info btn-lg center" data-toggle="modal" data-target="#myModal" id="2" onmouseleave="hideName(this.id)" onmouseover="showName(this.id)" onclick="finalFunction(this.id)" width="300px" height="300px">
+			</div>
+				<!-- second flag ends -->
+
+				<!--third flag begains  -->
+			<div class="col-sm-4" style="text-align: center">
+				<h2 id="d3"></h2>
+				<img src="assets/images/finland-flag.jpg" class="btn btn-info btn-lg center" data-toggle="modal" data-target="#myModal" id="3" onmouseleave="hideName(this.id)" onmouseover="showName(this.id);" onclick="finalFunction(this.id)" width="300px" height="300px">
+			</div>
+				<!-- third flag ends -->
+		</div>
+
+		<style>
+		  header {
+		    color:black;
+		    font-family: sans-serif;
+		  }
+
+		  .hero {
+		    min-height: 100vh;
+		    display:flex;
+		    justify-content: center;
+		    align-items: center;
+		    color:black;
+		  }
+
+		  h1 {
+		    text-shadow: 10px 10px 0 rgba(0,0,0,1);
+		    font-size: 100px;
+		  }
+	  	</style>
+
+	<script type="text/javascript">
+
+		ourflags = [{"country":"CAPE VERDE","population":"23 Million","size":"23 kmsqr","continent":"Africa","president":"Gadushi"}, {"country":"COSTA RICA","population":"45 Million","size":"34 KmSqr","continent":"South America","president":"Gondo"}, {"country":"FINLAND","population":"17 Million","size":"234 KmSqr","continent":"Europe","president":"Highten"}];
+
+		function finalFunction(x)
+		{
+			var mod = x-1;
+			document.getElementById('theheader').innerHTML = ourflags[mod].country;
+			document.getElementById('thecontinent').innerHTML = ourflags[mod].continent;
+			document.getElementById('thesize').innerHTML = ourflags[mod].size;
+			document.getElementById('thepopulation').innerHTML = ourflags[mod].population;
+			document.getElementById('thepresident').innerHTML = ourflags[mod].president;
+
+		}
+		function showName(x)
+		{
+			var d1 = "d" + x;
+			var mod = x-1;
+			document.getElementById(x).height = 250;
+			document.getElementById(d1).innerHTML = ourflags[mod].country;
+		}
+		function hideName(x)
+		{
+			var d1 = "d" + x;
+			var mod = x-1;
+			document.getElementById(x).height = 300;
+			document.getElementById(d1).innerHTML = "";
+		}
+
+		const hero = document.querySelector('.show');
+		const text = hero.querySelector('h1');
+		const walk = 20; // 100px
+
+		function shadow(e) {
+			const { offsetWidth: width, offsetHeight: height } = hero;
+		    let { offsetX: x, offsetY: y } = e;
+
+		    if (this !== e.target) {
+		      x = x + e.target.offsetLeft;
+		      y = y + e.target.offsetTop;
+		    }
+
+		    const xWalk = Math.round((x / width * walk) - (walk / 2));
+		    const yWalk = Math.round((y / height * walk) - (walk / 2));
+
+		    text.style.textShadow = `
+		      ${xWalk}px ${yWalk}px 0 rgba(255,0,255,0.7),
+		      ${xWalk * -1}px ${yWalk}px 0 rgba(0,255,255,0.7),
+		      ${yWalk}px ${xWalk * -1}px 0 rgba(0,255,0,0.7),
+		      ${yWalk * -1}px ${xWalk}px 0 rgba(0,0,255,0.7)
+		    `;
+		  }
+  			hero.addEventListener('mousemove', shadow);
+
+	</script>
+</body>
+</html>

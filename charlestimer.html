@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+	<script type="text/javascript" src="charlestimer.js"></script>
+</head>
+<body>
+	<div style="text-align: center">
+		<h1>Count Down</h1>
+		<input id="st" type="time" name="">
+		<h1 id="t"><span id="h">H</span>:<span id="m">M</span>:<span id="s">S</span></h1>
+		<p>For count dowm other than 45s and 30s input the number and press the <span style="color: blue"> Start Timer </span>button</p>
+
+		<button class="btn-primary btn" onclick="freeTime(document.getElementById('st').value); realClock(); repeatClock()">Start Timer</button>
+		<button class="btn-success btn" onclick="stopSound()">Stop Sound</button>
+		<button class="btn-danger btn" onclick="resetTimer()">Reset Timer</button>
+		<button class="btn-warning btn" onclick="myFunction(30)">30 seconds</button>
+		<button class="btn-warning btn" onclick="myFunction(45)">45 seconds</button>
+	</div>
+	<h1><h1>
+</body>
+</html>

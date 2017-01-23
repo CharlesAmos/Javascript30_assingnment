@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" >
+<title></title>
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+<script type="text/javascript">
+
+// function to generate random number for 5 times 
+function powerballNumber(){
+	var powerballNumber = (Math.random()*59) +1;
+	var powerballNumber2 = (Math.random()*59) +1;
+	var powerballNumber3 = (Math.random()*59) +1;
+	var powerballNumber4 = (Math.random()*59) +1;
+	var powerballNumber5 = (Math.random()*59) +1;
+	var powerballNumber6 = (Math.random()*59) +1;
+
+	powerballNumber = parseInt(powerballNumber);
+	powerballNumber2 = parseInt(powerballNumber2);
+	powerballNumber3 = parseInt(powerballNumber3);
+	powerballNumber4 = parseInt(powerballNumber4);
+	powerballNumber5 = parseInt(powerballNumber5);
+	powerballNumber6 = parseInt(powerballNumber6);
+
+	// displaying the random number.
+	document.getElementById('dispalyLottery').innerHTML = (powerballNumber + "-" + powerballNumber2 + "-" + powerballNumber3 + "-" + powerballNumber4 + "-" + powerballNumber5 + "-" + powerballNumber6 + ".");  
+}
+
+</script>
+</head>
+<body>
+	<div style="text-align: center">
+		<!-- button to generate random lottery number -->
+		<form name="Lottery">
+			<input style="margin-top: 50px" type="button" class="btn-primary btn" value="Generate Lottery Number" name="btnSubmit"  onclick="powerballNumber()">
+		</form>
+		<!-- displays lotter number on the web page -->
+		<h1 id="dispalyLottery"></h1>
+	</div>
+	
+
+</body>
+
+</html>
